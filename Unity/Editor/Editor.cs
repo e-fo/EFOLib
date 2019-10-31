@@ -47,7 +47,18 @@ namespace EFO.Unity.Editor {
 
             return GUILayout.TextField(value);
         }
-
+		
+		public static string GetWindowsDirectory(string path) {
+			path = path.Replace('/','\\');
+	
+			int backSlashIdx=0;
+			for(int i=0; i<path.Length; ++i)
+				if(path[i] =='\\') backSlashIdx = i;
+			
+			path = path.Substring(0, backSlashIdx);
+			
+			return path;
+		}
 
     }
 
